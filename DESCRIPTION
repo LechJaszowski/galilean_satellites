@@ -1,10 +1,9 @@
 Package: galisats
 Title: Configuration of Jupiter's Four Largest Satellites
 Version: 0.1.0
-Authors@R: 
-    person("Lech", "Jaszowski", , "lech.jaszowski@interia.pl", role = c("aut", "cre"))
+Authors@R: person("Lech", "Jaszowski", , "lech.jaszowski@interia.pl", role = c("aut", "cre"))
 Description: Calculates the configuration of Jupiter's four largest satellites for a given date and time (ET).
-License: `use_mit_license()`
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
