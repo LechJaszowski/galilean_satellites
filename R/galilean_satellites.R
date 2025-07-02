@@ -6,6 +6,19 @@ degrees <- function(radian) {
     radian * 180 / pi
 }
 
+#' Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time)
+#'
+#' @param year Type in the year (integer number greater then 0).
+#' @param month Type in the month (integer number from 1 to 12).
+#' @param day Type in the day (integer number from 1 to 31).
+#' @param hour Type in the hour (integer number from 0 to 23).
+#' @param minute Type in the minute (integer number from 0 to 59).
+#'
+#' @returns A data.frame
+#' @export
+#'
+#' @examples
+#' galsat(2025, 10, 22, 23, 30)
 galsat <- function(year, month, day, hour, minute) {
     print('SATELLITES OF JUPITER')
     print('Positions of the Galilean satellites.')
@@ -59,7 +72,7 @@ galsat <- function(year, month, day, hour, minute) {
     y2 <- -r2 * cos(radians(u2_corrected)) * sin(radians(De))
     y3 <- -r3 * cos(radians(u3_corrected)) * sin(radians(De))
     y4 <- -r4 * cos(radians(u4_corrected)) * sin(radians(De))
-    
+
     # shows results to 3 decimal places
     print("x: West(+), East(-)")
     cat("Io       ", round(x1, 3), "\n")
@@ -71,12 +84,12 @@ galsat <- function(year, month, day, hour, minute) {
     cat("Europa   ", round(y2, 3), "\n")
     cat("Ganymede ", round(y3, 3), "\n")
     cat("Callisto ", round(y4, 3), "\n")
-    
+
     result <- data.frame(
         moon = c("Io", "Europa", "Ganymede", "Callisto"),
         x = c(x1, x2, x3, x4),
         y = c(y1, y2, y3, y4)
     )
-    
+
     return(result)
 }
