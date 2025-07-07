@@ -12,6 +12,8 @@ satellites of Jupiter (called Galilean satellites). Positions are
 calculated for any given time (ET – Ephemeris Time) with respect to the
 planet, as seen from the Earth.
 
+To get ET time, express the time in UTC and add 1 minute.
+
 The galsat() function displays numerical values of the satellites’
 positions:
 

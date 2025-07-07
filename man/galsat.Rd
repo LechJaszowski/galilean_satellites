@@ -2,7 +2,7 @@
 % Please edit documentation in R/galilean_satellites.R
 \name{galsat}
 \alias{galsat}
-\title{Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time)}
+\title{Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time).}
 \usage{
 galsat(year, month, day, hour, minute)
 }
@@ -21,7 +21,7 @@ galsat(year, month, day, hour, minute)
 A data.frame
 }
 \description{
-Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time)
+Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time).
 }
 \examples{
 galsat(2025, 10, 22, 23, 30)

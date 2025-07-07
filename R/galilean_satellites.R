@@ -6,7 +6,7 @@ degrees <- function(radian) {
     radian * 180 / pi
 }
 
-#' Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time)
+#' Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time).
 #'
 #' @param year Type in the year (integer number greater then 0).
 #' @param month Type in the month (integer number from 1 to 12).
