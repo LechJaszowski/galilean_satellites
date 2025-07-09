@@ -23,13 +23,15 @@ If you are looking at Jupiter through binoculars or a telescope and don't know w
 
 galisats is used to determine the positions of the four greatest satellites of Jupiter (called Galilean satellites). Positions are calculated for any given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
 
-The galsat() function displays numerical values of the satellites’ positions:
+The galsat() function calculates numerical values of the satellites’ positions:
 
 x – the apparent rectangular coordinate of the satellite with respect to the center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s equatorial radius; X is positive toward the west
 
 y – the apparent rectangular coordinate of the satellite with respect to the center of Jupiter’s disk from the equatorial plane in the units of Jupiter’s equatorial radius; Y is positive toward the north
 
-The function is based on algorithms in the book: Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
+The function is based on algorithms in the book:
+
+Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
 
 ## Installation
 
@@ -46,5 +48,6 @@ This is an example of using the function galsat():
 
 ```{r example}
 library(galisats)
-galsat(2025, 10, 24, 21, 40)
+galsat(2025, 10, 13, 21, 40)
+galdraw(2025, 10, 13, 21, 40)
 ```

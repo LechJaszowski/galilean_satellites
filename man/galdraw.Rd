@@ -26,5 +26,5 @@ of Jupiter (called Galilean satellites). Positions are shown for any
 given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
 }
 \examples{
-galdraw(2025, 10, 22, 23, 30)
+galdraw(2025, 10, 13, 23, 30)
 }

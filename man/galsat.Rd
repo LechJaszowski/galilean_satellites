@@ -41,5 +41,5 @@ The function is based on algorithms in the book:
 Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
 }
 \examples{
-galsat(2025, 10, 22, 23, 30)
+galsat(2025, 10, 13, 23, 30)
 }

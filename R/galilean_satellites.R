@@ -40,7 +40,7 @@ degrees <- function(radian) {
 #' @export
 #'
 #' @examples
-#' galsat(2025, 10, 22, 23, 30)
+#' galsat(2025, 10, 13, 23, 30)
 galsat <- function(year, month, day, hour, minute) {
     print('SATELLITES OF JUPITER')
     print('Positions of the Galilean satellites.')
