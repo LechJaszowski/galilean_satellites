@@ -2,12 +2,12 @@
 % Please edit documentation in R/galilean_satellites.R
 \name{galsat}
 \alias{galsat}
-\title{Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time).}
+\title{Calculate the positions of the Galilean satellites}
 \usage{
 galsat(year, month, day, hour, minute)
 }
 \arguments{
-\item{year}{Type in the year (integer number greater then 0).}
+\item{year}{Type in the year (integer number greater then or equal 0).}
 
 \item{month}{Type in the month (integer number from 1 to 12).}
 
@@ -18,10 +18,27 @@ galsat(year, month, day, hour, minute)
 \item{minute}{Type in the minute (integer number from 0 to 59).}
 }
 \value{
-A data.frame
+A data frame with three columns: \code{moon}, \code{x} and \code{y}.
+Each row has the position of one moon.
 }
 \description{
-Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time).
+\code{galsat()} is used to determine the positions of the four greatest satellites
+of Jupiter (called Galilean satellites). Positions are calculated for any
+given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
+
+The \code{galsat()} function displays numerical values of the satellites’ positions:
+
+x – the apparent rectangular coordinate of the satellite with respect to the
+center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s
+equatorial radius; X is positive toward the west
+
+y – the apparent rectangular coordinate of the satellite with respect to the
+center of Jupiter’s disk from the equatorial plane in the units of Jupiter’s
+equatorial radius; Y is positive toward the north
+}
+\details{
+The function is based on algorithms in the book:
+Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
 }
 \examples{
 galsat(2025, 10, 22, 23, 30)

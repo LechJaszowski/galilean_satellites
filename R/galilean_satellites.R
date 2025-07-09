@@ -6,15 +6,37 @@ degrees <- function(radian) {
     radian * 180 / pi
 }
 
-#' Calculates the positions of the Galilean satellites for given time (ET – Ephemeris Time).
+#' Calculate the positions of the Galilean satellites
 #'
-#' @param year Type in the year (integer number greater then 0).
+#' @description
+#' `galsat()` is used to determine the positions of the four greatest satellites
+#' of Jupiter (called Galilean satellites). Positions are calculated for any
+#' given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
+#'
+#' The `galsat()` function displays numerical values of the satellites’ positions:
+#'
+#'   x – the apparent rectangular coordinate of the satellite with respect to the
+#' center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s
+#' equatorial radius; X is positive toward the west
+#'
+#'   y – the apparent rectangular coordinate of the satellite with respect to the
+#' center of Jupiter’s disk from the equatorial plane in the units of Jupiter’s
+#' equatorial radius; Y is positive toward the north
+#'
+#' @details
+#' The function is based on algorithms in the book:
+#' Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
+#'
+#' @param year Type in the year (integer number greater then or equal 0).
 #' @param month Type in the month (integer number from 1 to 12).
 #' @param day Type in the day (integer number from 1 to 31).
 #' @param hour Type in the hour (integer number from 0 to 23).
 #' @param minute Type in the minute (integer number from 0 to 59).
 #'
-#' @returns A data.frame
+#' @returns
+#' A data frame with three columns: `moon`, `x` and `y`.
+#' Each row has the position of one moon.
+#'
 #' @export
 #'
 #' @examples

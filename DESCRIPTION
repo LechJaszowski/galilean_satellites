@@ -4,10 +4,10 @@ Version: 0.1.0
 Authors@R: person(
                  "Lech", "Jaszowski",
                  email = "lech.jaszowski@interia.pl",
-                 role = c("aut", "cre"),
+                 role = c("aut", "cre", "cph"),
                  comment = c(ORCID = "0009-0001-4748-9603")
                  )
-Description: Calculate the configuration of Jupiter's four largest satellites
+Description: Calculate and plot the configuration of Jupiter's four largest satellites
     (known as Galilean satellites) for a given date and time (ET - Ephemeris Time).
 License: MIT + file LICENSE
 Encoding: UTF-8

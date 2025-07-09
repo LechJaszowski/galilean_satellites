@@ -7,12 +7,13 @@
 
 <!-- badges: end -->
 
+If you are looking at Jupiter through binoculars or a telescope and
+don’t know which moon is which, then use this package.
+
 galisats is used to determine the positions of the four greatest
 satellites of Jupiter (called Galilean satellites). Positions are
 calculated for any given time (ET – Ephemeris Time) with respect to the
 planet, as seen from the Earth.
-
-To get ET time, express the time in UTC and add 1 minute.
 
 The galsat() function displays numerical values of the satellites’
 positions:
@@ -25,10 +26,8 @@ y – the apparent rectangular coordinate of the satellite with respect to
 the center of Jupiter’s disk from the equatorial plane in the units of
 Jupiter’s equatorial radius; Y is positive toward the north
 
-The function is based on algorithms in the book:
-
-Astronomical Formulae for Calculators (4th edition), Jean Meeus,
-Willmann-Bell Inc., 1988
+The function is based on algorithms in the book: Astronomical Formulae
+for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
 
 ## Installation
 
