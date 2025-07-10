@@ -29,10 +29,20 @@ galdraw <- function(year, month, day, hour, minute) {
     ca_x <- p[4, 2]
     ca_y <- p[4, 3]
     graphics::plot(c(-30, 30), c(-30, 30), type = "n", axes = FALSE, xlab = "", ylab = "")
+    graphics::text(0, 28, "SATELLITES OF JUPITER", col = "black", cex = 1.7, adj = 0.5)
+    graphics::text(0, 24,
+                   paste0('Date: ', year, '-', sprintf("%02d", month), '-', sprintf("%02d", day)),
+                   col = "black", cex = 1.2, adj = 0.5)
+    graphics::text(0, 21,
+                   paste0('Time [ET]: ', sprintf("%02d", hour), ':', sprintf("%02d", minute)),
+                   col = "black", cex = 1.2, adj = 0.5)
     graphics::points(0, 0, col = "black", pch = 1, cex = 2) # Jupiter
-    graphics::text(0, 2, "Jupiter", cex = 0.8)
-    graphics::points(io_x, io_y, col = "black", pch = 20)
-    graphics::points(eu_x, eu_y, col = "black", pch = 20)
-    graphics::points(ga_x, ga_y, col = "black", pch = 20)
-    graphics::points(ca_x, ca_y, col = "black", pch = 20)
+    graphics::points(io_x, io_y, col = "red", pch = 20)
+    graphics::text(io_x, io_y + 3, "I", col = "red", cex = 0.8, adj = 0.5)
+    graphics::points(eu_x, eu_y, col = "blue", pch = 20)
+    graphics::text(eu_x, eu_y + 3, "E", col = "blue", cex = 0.8, adj = 0.5)
+    graphics::points(ga_x, ga_y, col = "green", pch = 20)
+    graphics::text(ga_x, ga_y + 3, "G", col = "green", cex = 0.8, adj = 0.5)
+    graphics::points(ca_x, ca_y, col = "magenta", pch = 20)
+    graphics::text(ca_x, ca_y + 3, "C", col = "magenta", cex = 0.8, adj = 0.5)
 }
