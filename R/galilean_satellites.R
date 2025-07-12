@@ -39,8 +39,9 @@ u4_corrected <<- 0
 #' @param minute Type in the minute (integer number from 0 to 59).
 #'
 #' @returns
-#' A data frame with three columns: `moon`, `x` and `y`.
-#' Each row has the position of one moon.
+#' `data.frame`: 4 observations of 3 variables
+#' Three columns: `moon`, `x` and `y`
+#' Four rows - each row has the position of one moon.
 #'
 #' @export
 #'

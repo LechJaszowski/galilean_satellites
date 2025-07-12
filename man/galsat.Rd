@@ -18,8 +18,9 @@ galsat(year, month, day, hour, minute)
 \item{minute}{Type in the minute (integer number from 0 to 59).}
 }
 \value{
-A data frame with three columns: \code{moon}, \code{x} and \code{y}.
-Each row has the position of one moon.
+\code{data.frame}: 4 observations of 3 variables
+Three columns: \code{moon}, \code{x} and \code{y}
+Four rows - each row has the position of one moon.
 }
 \description{
 \code{galsat()} is used to determine the positions of the four greatest satellites
