@@ -44,10 +44,9 @@ You can install the development version of galisats from [GitHub] (<https://gith
 
 ## Example
 
-This is an example of using the function galsat():
+This is an example of using the function galdraw():
 
 ```{r example}
 library(galisats)
-galsat(2025, 10, 13, 21, 40)
 galdraw(2025, 10, 13, 21, 40)
 ```

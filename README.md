@@ -43,30 +43,10 @@ You can install the development version of galisats from \[GitHub\]
 
 ## Example
 
-This is an example of using the function galsat():
+This is an example of using the function galdraw():
 
 ``` r
 library(galisats)
-galsat(2025, 10, 13, 21, 40)
-#> [1] "SATELLITES OF JUPITER"
-#> [1] "Positions of the Galilean satellites."
-#> Date: 13 - 10 - 2025 
-#> Time [ET]: 21 : 40 
-#> [1] "x: West(+), East(-)"
-#> Io        4.1 
-#> Europa    -8.413 
-#> Ganymede  6.636 
-#> Callisto  -24.733 
-#> [1] "y: North(+), South(-)"
-#> Io        0.112 
-#> Europa    0.108 
-#> Ganymede  -0.352 
-#> Callisto  0.254
-#>       moon          x          y
-#> 1       Io   4.099974  0.1122642
-#> 2   Europa  -8.412734  0.1083234
-#> 3 Ganymede   6.636258 -0.3519694
-#> 4 Callisto -24.733044  0.2537935
 galdraw(2025, 10, 13, 21, 40)
 #> [1] "SATELLITES OF JUPITER"
 #> [1] "Positions of the Galilean satellites."

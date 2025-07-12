@@ -41,12 +41,20 @@ galdraw <- function(year, month, day, hour, minute) {
                    col = "black", cex = 1.2, adj = 0.5)
     # graphics::points(0, 0, col = "black", pch = 1, cex = 2) # Jupiter
     graphics::rasterImage(jupiter, xleft = -1, ybottom = -1, xright = 1, ytop = 1)
-    graphics::points(io_x, io_y, col = "red", pch = 20)
-    graphics::text(io_x, io_y + 3, "I", col = "red", cex = 0.8, adj = 0.5)
-    graphics::points(eu_x, eu_y, col = "blue", pch = 20)
-    graphics::text(eu_x, eu_y + 3, "E", col = "blue", cex = 0.8, adj = 0.5)
-    graphics::points(ga_x, ga_y, col = "green", pch = 20)
-    graphics::text(ga_x, ga_y + 3, "G", col = "green", cex = 0.8, adj = 0.5)
-    graphics::points(ca_x, ca_y, col = "magenta", pch = 20)
-    graphics::text(ca_x, ca_y + 3, "C", col = "magenta", cex = 0.8, adj = 0.5)
+    if (sqrt(io_x^2 + io_y^2) > 1 | u1_corrected < 90 | u1_corrected > 270) {
+        graphics::points(io_x, io_y, col = "red", pch = 20);
+        graphics::text(io_x, io_y + 3, "I", col = "red", cex = 0.8, adj = 0.5)
+    }
+    if (sqrt(eu_x^2 + eu_y^2) > 1 | u2_corrected < 90 | u2_corrected > 270) {
+        graphics::points(eu_x, eu_y, col = "blue", pch = 20);
+        graphics::text(eu_x, eu_y + 3, "E", col = "blue", cex = 0.8, adj = 0.5)
+    }
+    if (sqrt(ga_x^2 + ga_y^2) > 1 | u3_corrected < 90 | u3_corrected > 270) {
+        graphics::points(ga_x, ga_y, col = "green", pch = 20);
+        graphics::text(ga_x, ga_y + 3, "G", col = "green", cex = 0.8, adj = 0.5)
+    }
+    if (sqrt(ca_x^2 + ca_y^2) > 1 | u4_corrected < 90 | u4_corrected > 270) {
+        graphics::points(ca_x, ca_y, col = "magenta", pch = 20);
+        graphics::text(ca_x, ca_y + 3, "C", col = "magenta", cex = 0.8, adj = 0.5)
+    }
 }

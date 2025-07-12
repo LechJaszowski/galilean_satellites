@@ -41,6 +41,12 @@ degrees <- function(radian) {
 #'
 #' @examples
 #' galsat(2025, 10, 13, 23, 30)
+
+u1_corrected <<- 0
+u2_corrected <<- 0
+u3_corrected <<- 0
+u4_corrected <<- 0
+
 galsat <- function(year, month, day, hour, minute) {
     print('SATELLITES OF JUPITER')
     print('Positions of the Galilean satellites.')
@@ -79,10 +85,10 @@ galsat <- function(year, month, day, hour, minute) {
     r2 <- 9.3972 - .0889 * cos(radians(2 * (u2_deg - u3_deg)))
     r3 <- 14.9894 - .0227 * cos(radians(Gdeg))
     r4 <- 26.3649 - .1944 * cos(radians(Hdeg))
-    u1_corrected <- (u1_deg + u1_correction) %% 360
-    u2_corrected <- (u2_deg + u2_correction) %% 360
-    u3_corrected <- (u3_deg + u3_correction) %% 360
-    u4_corrected <- (u4_deg + u4_correction) %% 360
+    u1_corrected <<- (u1_deg + u1_correction) %% 360
+    u2_corrected <<- (u2_deg + u2_correction) %% 360
+    u3_corrected <<- (u3_deg + u3_correction) %% 360
+    u4_corrected <<- (u4_deg + u4_correction) %% 360
     lambd <- 238.05 + .083091 * d + .33 * sin(radians(Vdeg)) + Bdeg
     De <- 3.07 * sin(radians(lambd + 44.5)) - 1.31 * (rj_AU - delta_AU) *
         sin(radians(lambd - 99.4)) / delta_AU - 2.15 * sin(radians(psi)) * cos(radians(lambd + 24))
