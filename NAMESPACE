@@ -2,3 +2,4 @@
 
 export(galdraw)
 export(galsat)
+importFrom(png,readPNG)

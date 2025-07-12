@@ -14,6 +14,8 @@
 #' @returns
 #' A plot.
 #'
+#' @importFrom png readPNG
+#'
 #' @export
 #'
 #' @examples
@@ -28,6 +30,7 @@ galdraw <- function(year, month, day, hour, minute) {
     ga_y <- p[3, 3]
     ca_x <- p[4, 2]
     ca_y <- p[4, 3]
+    jupiter <- readPNG("inst/img/jupiter.png")
     graphics::plot(c(-30, 30), c(-30, 30), type = "n", axes = FALSE, xlab = "", ylab = "")
     graphics::text(0, 28, "SATELLITES OF JUPITER", col = "black", cex = 1.7, adj = 0.5)
     graphics::text(0, 24,
@@ -36,7 +39,8 @@ galdraw <- function(year, month, day, hour, minute) {
     graphics::text(0, 21,
                    paste0('Time [ET]: ', sprintf("%02d", hour), ':', sprintf("%02d", minute)),
                    col = "black", cex = 1.2, adj = 0.5)
-    graphics::points(0, 0, col = "black", pch = 1, cex = 2) # Jupiter
+    # graphics::points(0, 0, col = "black", pch = 1, cex = 2) # Jupiter
+    graphics::rasterImage(jupiter, xleft = -1, ybottom = -1, xright = 1, ytop = 1)
     graphics::points(io_x, io_y, col = "red", pch = 20)
     graphics::text(io_x, io_y + 3, "I", col = "red", cex = 0.8, adj = 0.5)
     graphics::points(eu_x, eu_y, col = "blue", pch = 20)
