@@ -30,7 +30,7 @@ galdraw <- function(year, month, day, hour, minute) {
     ga_y <- p[3, 3]
     ca_x <- p[4, 2]
     ca_y <- p[4, 3]
-    jupiter <- readPNG("inst/img/jupiter.png")
+    jupiter <- png::readPNG(system.file("jupiter.png", package = "galisats"))
     graphics::plot(c(-30, 30), c(-30, 30), type = "n", axes = FALSE, xlab = "", ylab = "")
     graphics::text(0, 28, "SATELLITES OF JUPITER", col = "black", cex = 1.7, adj = 0.5)
     graphics::text(0, 24,
