@@ -6,6 +6,11 @@ degrees <- function(radian) {
     radian * 180 / pi
 }
 
+u1_corrected <<- 0
+u2_corrected <<- 0
+u3_corrected <<- 0
+u4_corrected <<- 0
+
 #' Calculate the positions of the Galilean satellites
 #'
 #' @description
@@ -41,11 +46,6 @@ degrees <- function(radian) {
 #'
 #' @examples
 #' galsat(2025, 10, 13, 23, 30)
-
-u1_corrected <<- 0
-u2_corrected <<- 0
-u3_corrected <<- 0
-u4_corrected <<- 0
 
 galsat <- function(year, month, day, hour, minute) {
     print('SATELLITES OF JUPITER')
