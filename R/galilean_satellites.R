@@ -51,6 +51,9 @@ u4_corrected <<- 0
 #' galsat(2025, 10, 13, 23, 30)
 
 galsat <- function(year, month, day, hour, minute) {
+    date_string <- sprintf("%04d-%02d-%02d %02d:%02d", year, month, day, hour, minute)
+    date_parse <- as.POSIXct(date_string, format = "%Y-%m-%d %H:%M", tz = "UTC") # NA if invalid
+    if (is.na(date_parse)) {stop("Invalid date or time provided.")}
     print('SATELLITES OF JUPITER')
     print('Positions of the Galilean satellites.')
     cat('Date:', sprintf("%02d", day), '-', sprintf("%02d", month), '-', year, "\n")
