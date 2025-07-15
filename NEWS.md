@@ -1,6 +1,12 @@
+# galisats 0.4.0 (2025-07-15)
+
+-   providing proper aspect ratio for the plot
+
 # galisats 0.3.1 (2025-07-15)
 
 -   adding date & time validation
+
+-   adding comments for the R code
 
 # galisats 0.3.0 (2025-07-12)
 
