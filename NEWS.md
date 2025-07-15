@@ -1,3 +1,7 @@
+# galisats 0.3.1 (2025-07-15)
+
+-   adding date & time validation
+
 # galisats 0.3.0 (2025-07-12)
 
 -   displaying a photo of Jupiter instead of a circle
