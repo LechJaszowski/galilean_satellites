@@ -21,6 +21,8 @@
 #' @examples
 #' galdraw(2025, 10, 13, 23, 30)
 galdraw <- function(year, month, day, hour, minute) {
+
+    #storing the results of the galsat function
     p <- galsat(year, month, day, hour, minute)
     io_x <- p[1, 2]
     io_y <- p[1, 3]
@@ -30,8 +32,9 @@ galdraw <- function(year, month, day, hour, minute) {
     ga_y <- p[3, 3]
     ca_x <- p[4, 2]
     ca_y <- p[4, 3]
-    jupiter <- png::readPNG(system.file("jupiter.png", package = "galisats"))
-    graphics::plot(c(-30, 30), c(-30, 30), type = "n", axes = FALSE, xlab = "", ylab = "")
+
+    # inserting a title, date and time
+    graphics::plot(c(-30, 30), c(-30, 30), type = "n", axes = FALSE, xlab = "", ylab = "", asp = 1)
     graphics::text(0, 28, "SATELLITES OF JUPITER", col = "black", cex = 1.7, adj = 0.5)
     graphics::text(0, 24,
                    paste0('Date: ', year, '-', sprintf("%02d", month), '-', sprintf("%02d", day)),
@@ -39,8 +42,12 @@ galdraw <- function(year, month, day, hour, minute) {
     graphics::text(0, 21,
                    paste0('Time [ET]: ', sprintf("%02d", hour), ':', sprintf("%02d", minute)),
                    col = "black", cex = 1.2, adj = 0.5)
-    # graphics::points(0, 0, col = "black", pch = 1, cex = 2) # Jupiter
+
+    # inserting an image of Jupiter in the center of the plot
+    jupiter <- png::readPNG(system.file("jupiter.png", package = "galisats"))
     graphics::rasterImage(jupiter, xleft = -1, ybottom = -1, xright = 1, ytop = 1)
+
+    # drawing the moons with their labels
     if (sqrt(io_x^2 + io_y^2) > 1 | u1_corrected < 90 | u1_corrected > 270) {
         graphics::points(io_x, io_y, col = "red", pch = 20);
         graphics::text(io_x, io_y + 3, "I", col = "red", cex = 0.8, adj = 0.5)

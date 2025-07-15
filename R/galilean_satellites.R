@@ -51,13 +51,19 @@ u4_corrected <<- 0
 #' galsat(2025, 10, 13, 23, 30)
 
 galsat <- function(year, month, day, hour, minute) {
+
+    # date & time validation
     date_string <- sprintf("%04d-%02d-%02d %02d:%02d", year, month, day, hour, minute)
     date_parse <- as.POSIXct(date_string, format = "%Y-%m-%d %H:%M", tz = "UTC") # NA if invalid
     if (is.na(date_parse)) {stop("Invalid date or time provided.")}
+
+    # display the header in the console
     print('SATELLITES OF JUPITER')
     print('Positions of the Galilean satellites.')
     cat('Date:', sprintf("%02d", day), '-', sprintf("%02d", month), '-', year, "\n")
     cat('Time [ET]:', sprintf("%02d", hour), ':', sprintf("%02d", minute), "\n")
+
+    # calculations
     DDdd <- day + hour / 24 + minute / 1440
     if (month >= 3) {y <- year; m <- month} else {y <- year - 1; m <- month + 12}
     JD <- floor(365.25 * y) + DDdd + 1720994.5 + floor(30.6001 * (m + 1))
@@ -107,7 +113,7 @@ galsat <- function(year, month, day, hour, minute) {
     y3 <- -r3 * cos(radians(u3_corrected)) * sin(radians(De))
     y4 <- -r4 * cos(radians(u4_corrected)) * sin(radians(De))
 
-    # shows results to 3 decimal places
+    # displaying results in the console (up to 3 decimal places)
     print("x: West(+), East(-)")
     cat("Io       ", round(x1, 3), "\n")
     cat("Europa   ", round(x2, 3), "\n")
@@ -119,6 +125,7 @@ galsat <- function(year, month, day, hour, minute) {
     cat("Ganymede ", round(y3, 3), "\n")
     cat("Callisto ", round(y4, 3), "\n")
 
+    # resulting data structure (data frame)
     result <- data.frame(
         moon = c("Io", "Europa", "Ganymede", "Callisto"),
         x = c(x1, x2, x3, x4),
