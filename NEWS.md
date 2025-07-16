@@ -1,3 +1,7 @@
+# galisats 1.0.0 (2025-07-16)
+
+-   combining two functions to one `galsat()`
+
 # galisats 0.4.0 (2025-07-15)
 
 -   providing proper aspect ratio for the plot

@@ -1,6 +1,6 @@
 Package: galisats
 Title: Configuration of Jupiter's Four Largest Satellites
-Version: 0.4.0
+Version: 1.0.0
 Authors@R: person(
                  "Lech", "Jaszowski",
                  email = "lech.jaszowski@interia.pl",
