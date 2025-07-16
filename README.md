@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/LechJaszowski/galilean_satellites/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LechJaszowski/galilean_satellites/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 If you are looking at Jupiter through binoculars or a telescope and
@@ -62,9 +63,12 @@ galsat(2025, 10, 13, 21, 40)
 #> Europa    0.108 
 #> Ganymede  -0.352 
 #> Callisto  0.254
-#>       moon          x          y
-#> 1       Io   4.099974  0.1122642
-#> 2   Europa  -8.412734  0.1083234
-#> 3 Ganymede   6.636258 -0.3519694
-#> 4 Callisto -24.733044  0.2537935
 ```
+
+<img src="man/figures/README-example-1.png" width="100%" />
+
+    #>       moon          x          y
+    #> 1       Io   4.099974  0.1122642
+    #> 2   Europa  -8.412734  0.1083234
+    #> 3 Ganymede   6.636258 -0.3519694
+    #> 4 Callisto -24.733044  0.2537935
