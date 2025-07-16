@@ -21,9 +21,9 @@ knitr::opts_chunk$set(
 
 If you are looking at Jupiter through binoculars or a telescope and don't know which moon is which, then use this package.
 
-galisats is used to determine the positions of the four greatest satellites of Jupiter (called Galilean satellites). Positions are calculated for any given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
+`galisats` is used to determine the positions of the four greatest satellites of Jupiter (called Galilean satellites). Positions are shown on the plot for any given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
 
-The galsat() function calculates numerical values of the satellites’ positions:
+The `galsat()` function calculates numerical values of the satellites’ positions:
 
 x – the apparent rectangular coordinate of the satellite with respect to the center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s equatorial radius; X is positive toward the west
 
@@ -44,9 +44,9 @@ You can install the development version of galisats from [GitHub] (<https://gith
 
 ## Example
 
-This is an example of using the function galdraw():
+This is an example of using the function galsat():
 
 ```{r example}
 library(galisats)
-galdraw(2025, 10, 13, 21, 40)
+galsat(2025, 10, 13, 21, 40)
 ```

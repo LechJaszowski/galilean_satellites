@@ -2,7 +2,7 @@
 % Please edit documentation in R/galilean_satellites.R
 \name{galsat}
 \alias{galsat}
-\title{Calculate the positions of the Galilean satellites}
+\title{Calculate & draw the positions of the Galilean satellites}
 \usage{
 galsat(year, month, day, hour, minute)
 }
@@ -23,10 +23,12 @@ $ moon: chr "Io" "Europa" "Ganymede" "Callisto"
 $ x   : num
 $ y   : num
 Four rows - each row has the position (x,y) of one moon.
+Additionally, the calculated positions of the moons are displayed in the console,
+and in the Plots pane it is shown graphically.
 }
 \description{
 \code{galsat()} is used to determine the positions of the four greatest satellites
-of Jupiter (called Galilean satellites). Positions are calculated for any
+of Jupiter (called Galilean satellites). Positions are shown on the plot for any
 given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
 
 The \code{galsat()} function displays numerical values of the satellites’ positions:

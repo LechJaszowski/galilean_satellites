@@ -6,16 +6,11 @@ degrees <- function(radian) {
     radian * 180 / pi
 }
 
-u1_corrected <<- 0
-u2_corrected <<- 0
-u3_corrected <<- 0
-u4_corrected <<- 0
-
-#' Calculate the positions of the Galilean satellites
+#' Calculate & draw the positions of the Galilean satellites
 #'
 #' @description
 #' `galsat()` is used to determine the positions of the four greatest satellites
-#' of Jupiter (called Galilean satellites). Positions are calculated for any
+#' of Jupiter (called Galilean satellites). Positions are shown on the plot for any
 #' given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
 #'
 #' The `galsat()` function displays numerical values of the satellites’ positions:
@@ -44,6 +39,10 @@ u4_corrected <<- 0
 #' $ x   : num
 #' $ y   : num
 #' Four rows - each row has the position (x,y) of one moon.
+#' Additionally, the calculated positions of the moons are displayed in the console,
+#' and in the Plots pane it is shown graphically.
+#'
+#' @importFrom png readPNG
 #'
 #' @export
 #'
@@ -97,10 +96,10 @@ galsat <- function(year, month, day, hour, minute) {
     r2 <- 9.3972 - .0889 * cos(radians(2 * (u2_deg - u3_deg)))
     r3 <- 14.9894 - .0227 * cos(radians(Gdeg))
     r4 <- 26.3649 - .1944 * cos(radians(Hdeg))
-    u1_corrected <<- (u1_deg + u1_correction) %% 360
-    u2_corrected <<- (u2_deg + u2_correction) %% 360
-    u3_corrected <<- (u3_deg + u3_correction) %% 360
-    u4_corrected <<- (u4_deg + u4_correction) %% 360
+    u1_corrected <- (u1_deg + u1_correction) %% 360
+    u2_corrected <- (u2_deg + u2_correction) %% 360
+    u3_corrected <- (u3_deg + u3_correction) %% 360
+    u4_corrected <- (u4_deg + u4_correction) %% 360
     lambd <- 238.05 + .083091 * d + .33 * sin(radians(Vdeg)) + Bdeg
     De <- 3.07 * sin(radians(lambd + 44.5)) - 1.31 * (rj_AU - delta_AU) *
         sin(radians(lambd - 99.4)) / delta_AU - 2.15 * sin(radians(psi)) * cos(radians(lambd + 24))
@@ -126,11 +125,42 @@ galsat <- function(year, month, day, hour, minute) {
     cat("Callisto ", round(y4, 3), "\n")
 
     # resulting data structure (data frame)
-    result <- data.frame(
+    p <- data.frame(
         moon = c("Io", "Europa", "Ganymede", "Callisto"),
         x = c(x1, x2, x3, x4),
         y = c(y1, y2, y3, y4)
     )
 
-    return(result)
+    # inserting a title, date and time
+    graphics::plot(c(-30, 30), c(-30, 30), type = "n", axes = FALSE, xlab = "", ylab = "", asp = 1)
+    graphics::text(0, 28, "SATELLITES OF JUPITER", col = "black", cex = 1.7, adj = 0.5)
+    graphics::text(0, 24,
+                   paste0('Date: ', year, '-', sprintf("%02d", month), '-', sprintf("%02d", day)),
+                   col = "black", cex = 1.2, adj = 0.5)
+    graphics::text(0, 21,
+                   paste0('Time [ET]: ', sprintf("%02d", hour), ':', sprintf("%02d", minute)),
+                   col = "black", cex = 1.2, adj = 0.5)
+
+    # inserting an image of Jupiter in the center of the plot
+    jupiter <- png::readPNG(system.file("jupiter.png", package = "galisats"))
+    graphics::rasterImage(jupiter, xleft = -1, ybottom = -1, xright = 1, ytop = 1)
+
+    # drawing the moons with their labels
+    if (sqrt(x1^2 + y1^2) > 1 | u1_corrected < 90 | u1_corrected > 270) {
+        graphics::points(x1, y1, col = "red", pch = 20);
+        graphics::text(x1, y1 + 3, "I", col = "red", cex = 0.8, adj = 0.5)
+    }
+    if (sqrt(x2^2 + y2^2) > 1 | u2_corrected < 90 | u2_corrected > 270) {
+        graphics::points(x2, y2, col = "blue", pch = 20);
+        graphics::text(x2, y2 + 3, "E", col = "blue", cex = 0.8, adj = 0.5)
+    }
+    if (sqrt(x3^2 + y3^2) > 1 | u3_corrected < 90 | u3_corrected > 270) {
+        graphics::points(x3, y3, col = "green", pch = 20);
+        graphics::text(x3, y3 + 3, "G", col = "green", cex = 0.8, adj = 0.5)
+    }
+    if (sqrt(x4^2 + y4^2) > 1 | u4_corrected < 90 | u4_corrected > 270) {
+        graphics::points(x4, y4, col = "magenta", pch = 20);
+        graphics::text(x4, y4 + 3, "C", col = "magenta", cex = 0.8, adj = 0.5)
+    }
+    return(p)
 }

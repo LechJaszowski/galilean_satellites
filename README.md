@@ -10,12 +10,12 @@
 If you are looking at Jupiter through binoculars or a telescope and
 don’t know which moon is which, then use this package.
 
-galisats is used to determine the positions of the four greatest
-satellites of Jupiter (called Galilean satellites). Positions are
-calculated for any given time (ET – Ephemeris Time) with respect to the
+`galisats` is used to determine the positions of the four greatest
+satellites of Jupiter (called Galilean satellites). Positions are shown
+on the plot for any given time (ET – Ephemeris Time) with respect to the
 planet, as seen from the Earth.
 
-The galsat() function calculates numerical values of the satellites’
+The `galsat()` function calculates numerical values of the satellites’
 positions:
 
 x – the apparent rectangular coordinate of the satellite with respect to
@@ -43,11 +43,11 @@ You can install the development version of galisats from \[GitHub\]
 
 ## Example
 
-This is an example of using the function galdraw():
+This is an example of using the function galsat():
 
 ``` r
 library(galisats)
-galdraw(2025, 10, 13, 21, 40)
+galsat(2025, 10, 13, 21, 40)
 #> [1] "SATELLITES OF JUPITER"
 #> [1] "Positions of the Galilean satellites."
 #> Date: 13 - 10 - 2025 
@@ -62,6 +62,9 @@ galdraw(2025, 10, 13, 21, 40)
 #> Europa    0.108 
 #> Ganymede  -0.352 
 #> Callisto  0.254
+#>       moon          x          y
+#> 1       Io   4.099974  0.1122642
+#> 2   Europa  -8.412734  0.1083234
+#> 3 Ganymede   6.636258 -0.3519694
+#> 4 Callisto -24.733044  0.2537935
 ```
-
-<img src="man/figures/README-example-1.png" width="100%" />
