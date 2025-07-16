@@ -38,8 +38,8 @@ You can install the development version of galisats from \[GitHub\]
 (<https://github.com/>) with:
 
 ``` r
-# install.packages("galisats")
-# devtools::install_github("...")
+# install.packages("devtools")
+devtools::install_github("LechJaszowski/galilean_satellites")
 ```
 
 ## Example
