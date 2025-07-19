@@ -1,3 +1,7 @@
+# galisats 1.0.1 (2025-07-19)
+
+-   getting rid of console entries
+
 # galisats 1.0.0 (2025-07-16)
 
 -   combining two functions to one `galsat()`
