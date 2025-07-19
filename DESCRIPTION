@@ -7,12 +7,23 @@ Authors@R: person(
                  role = c("aut", "cre", "cph"),
                  comment = c(ORCID = "0009-0001-4748-9603")
                  )
-Description: Calculate and plot the configuration of Jupiter's four largest satellites
-    (known as Galilean satellites) for a given date and time (ET - Ephemeris Time).
+Description: Calculate and plot the configuration of Jupiter's four largest
+    satellites (known as Galilean satellites) for a given date and time
+    (ET - Ephemeris Time).
+    The 'galsat' function returns numerical values of the satellites’ positions.
+    x – the apparent rectangular coordinate of the satellite with respect to the
+    center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s
+    equatorial radius; X is positive toward the west,
+    y – the apparent rectangular coordinate of the satellite with respect to the
+    center of Jupiter’s disk from the equatorial plane in the units of Jupiter’s
+    equatorial radius; Y is positive toward the north.
+    For more details see Meeus (1988, ISBN 0-943396-22-0) "Astronomical Formulae
+    for Calculators".
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Imports: 
-    graphics, png
+Imports:
+    graphics,
+    png
 URL: https://lechjaszowski.github.io/galilean_satellites/

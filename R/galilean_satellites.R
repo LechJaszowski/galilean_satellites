@@ -13,7 +13,7 @@ degrees <- function(radian) {
 #' of Jupiter (called Galilean satellites). Positions are shown on the plot for any
 #' given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
 #'
-#' The `galsat()` function displays numerical values of the satellites’ positions:
+#' The `galsat()` function returns numerical values of the satellites’ positions:
 #'
 #'   x – the apparent rectangular coordinate of the satellite with respect to the
 #' center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s
@@ -39,8 +39,7 @@ degrees <- function(radian) {
 #' $ x   : num
 #' $ y   : num
 #' Four rows - each row has the position (x,y) of one moon.
-#' Additionally, the calculated positions of the moons are displayed in the console,
-#' and in the Plots pane it is shown graphically.
+#' Additionally, the positions of the moons are shown graphically.
 #'
 #' @importFrom png readPNG
 #'
@@ -55,12 +54,6 @@ galsat <- function(year, month, day, hour, minute) {
     date_string <- sprintf("%04d-%02d-%02d %02d:%02d", year, month, day, hour, minute)
     date_parse <- as.POSIXct(date_string, format = "%Y-%m-%d %H:%M", tz = "UTC") # NA if invalid
     if (is.na(date_parse)) {stop("Invalid date or time provided.")}
-
-    # display the header in the console
-    print('SATELLITES OF JUPITER')
-    print('Positions of the Galilean satellites.')
-    cat('Date:', sprintf("%02d", day), '-', sprintf("%02d", month), '-', year, "\n")
-    cat('Time [ET]:', sprintf("%02d", hour), ':', sprintf("%02d", minute), "\n")
 
     # calculations
     DDdd <- day + hour / 24 + minute / 1440
@@ -111,18 +104,6 @@ galsat <- function(year, month, day, hour, minute) {
     y2 <- -r2 * cos(radians(u2_corrected)) * sin(radians(De))
     y3 <- -r3 * cos(radians(u3_corrected)) * sin(radians(De))
     y4 <- -r4 * cos(radians(u4_corrected)) * sin(radians(De))
-
-    # displaying results in the console (up to 3 decimal places)
-    print("x: West(+), East(-)")
-    cat("Io       ", round(x1, 3), "\n")
-    cat("Europa   ", round(x2, 3), "\n")
-    cat("Ganymede ", round(x3, 3), "\n")
-    cat("Callisto ", round(x4, 3), "\n")
-    print("y: North(+), South(-)")
-    cat("Io       ", round(y1, 3), "\n")
-    cat("Europa   ", round(y2, 3), "\n")
-    cat("Ganymede ", round(y3, 3), "\n")
-    cat("Callisto ", round(y4, 3), "\n")
 
     # resulting data structure (data frame)
     p <- data.frame(

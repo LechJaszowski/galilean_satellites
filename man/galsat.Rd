@@ -23,15 +23,14 @@ $ moon: chr "Io" "Europa" "Ganymede" "Callisto"
 $ x   : num
 $ y   : num
 Four rows - each row has the position (x,y) of one moon.
-Additionally, the calculated positions of the moons are displayed in the console,
-and in the Plots pane it is shown graphically.
+Additionally, the positions of the moons are shown graphically.
 }
 \description{
 \code{galsat()} is used to determine the positions of the four greatest satellites
 of Jupiter (called Galilean satellites). Positions are shown on the plot for any
 given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
 
-The \code{galsat()} function displays numerical values of the satellites’ positions:
+The \code{galsat()} function returns numerical values of the satellites’ positions:
 
 x – the apparent rectangular coordinate of the satellite with respect to the
 center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s
