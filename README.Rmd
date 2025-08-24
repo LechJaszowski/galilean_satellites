@@ -13,16 +13,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-# galisats
+# galisats <a href="https://lechjaszowski.github.io/galilean_satellites/"><img src="man/figures/logo.png" alt="galisats website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/LechJaszowski/galilean_satellites/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LechJaszowski/galilean_satellites/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 If you are looking at Jupiter through binoculars or a telescope and don't know which moon is which, then use this package.
 
-`galisats` is used to determine the positions of the four greatest satellites of Jupiter (called Galilean satellites). Positions are shown on the plot for any given time (ET – Ephemeris Time) with respect to the planet, as seen from the Earth.
+`galisats` is used to determine the positions of the four greatest satellites of Jupiter (called Galilean satellites). Positions are shown on the plot for any given time (UTC – Coordinated Universal Time) with respect to the planet, as seen from the Earth.
 
 The `galsat()` function calculates numerical values of the satellites’ positions:
 
@@ -33,6 +34,8 @@ y – the apparent rectangular coordinate of the satellite with respect to the c
 The function is based on algorithms in the book:
 
 Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
+
+The `delta_t()` function returns the value of delta-T in seconds unit. It's useful for converting the Coordinated Universal Time (UTC) to the Ephemeris Time (ET). The conversion is handled as: ET = UTC + ΔT
 
 ## Installation
 
@@ -45,9 +48,17 @@ devtools::install_github("LechJaszowski/galilean_satellites")
 
 ## Example
 
-This is an example of using the function galsat():
+This is an example of using the function `galsat()`:
 
 ```{r example}
 library(galisats)
 galsat(2025, 10, 13, 21, 40)
+```
+
+These are examples of using the function `delta_t()`:
+
+```{r example}
+library(galisats)
+delta_t(1999, 10)
+delta_t(c(-200, 1610, 2030), c(1, 10, 12))
 ```
