@@ -1,3 +1,7 @@
+# galisats 2.0.1 (2025-08-24)
+
+-   fixing `delta_t()` function to generate a vector of values
+
 # galisats 2.0.0 (2025-08-24)
 
 -   changing the parameters of the `galsat()` function to UTC (earlier in ET)
