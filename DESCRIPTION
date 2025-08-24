@@ -19,7 +19,7 @@ Description: Calculate and plot the configuration of Jupiter's four largest
     equatorial radius; Y is positive toward the north.
     For more details see Meeus (1988, ISBN 0-943396-22-0) "Astronomical Formulae
     for Calculators".
-    The function delta_t() returns the value of delta-T in seconds unit.
+    The function delta_t() returns the value of delta-T in units of seconds.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

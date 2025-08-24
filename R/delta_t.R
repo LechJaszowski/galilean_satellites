@@ -1,13 +1,13 @@
-#' Return the value of delta-T in seconds unit
+#' Return the value of delta-T in units of seconds
 #'
 #' @description
 #' Converting the Coordinated Universal Time (UTC) to the Ephemeris Time (ET) is complex.
 #' It is due to the unpredictable nature of the Earth's rotation, which is the basis for
 #' UTC, whereas ET was based on the more uniform orbital motion of the Earth around the
-#' Sun. The key to converting between these time scales lies in a value known as
-#' ΔT (delta-T), which is the difference between a uniform time scale and one based on
+#' Sun. The key to converting between these time scales lies in a value known as delta-T,
+#' which is the difference between a uniform time scale and one based on
 #' Earth's rotation. The conversion is handled as:
-#' ET = UTC + ΔT
+#' ET = UTC + deltaT
 #' However, delta-T is not a constant value and cannot be calculated using a simple
 #' formula. The delta-T values are derived from the historical records and from direct
 #' observations. A series of polynomial expressions have been created to simplify the

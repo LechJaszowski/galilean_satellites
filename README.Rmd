@@ -35,7 +35,7 @@ The function is based on algorithms in the book:
 
 Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
 
-The `delta_t()` function returns the value of delta-T in seconds unit. It's useful for converting the Coordinated Universal Time (UTC) to the Ephemeris Time (ET). The conversion is handled as: ET = UTC + ΔT
+The `delta_t()` function returns the value of delta-T in seconds unit. It's useful for converting the Coordinated Universal Time (UTC) to the Ephemeris Time (ET). The conversion is handled as: ET = UTC + deltaT
 
 ## Installation
 
@@ -48,17 +48,11 @@ devtools::install_github("LechJaszowski/galilean_satellites")
 
 ## Example
 
-This is an example of using the function `galsat()`:
+There are examples of using `galsat()` and `delta_t()` functions:
 
 ```{r example}
 library(galisats)
 galsat(2025, 10, 13, 21, 40)
-```
-
-These are examples of using the function `delta_t()`:
-
-```{r example}
-library(galisats)
 delta_t(1999, 10)
 delta_t(c(-200, 1610, 2030), c(1, 10, 12))
 ```
