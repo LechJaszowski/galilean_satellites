@@ -15,7 +15,7 @@
 #'
 #' @details
 #' More details:
-#' Morrison, L. and Stephenson, F. R., "Historical Values of the Earth's Clock Error ΔT
+#' Morrison, L. and Stephenson, F. R., "Historical Values of the Earth's Clock Error delta-T
 #' and the Calculation of Eclipses", J. Hist. Astron., Vol. 35 Part 3, August 2004,
 #' No. 120, pp 327-336 (2004)
 #' Stephenson F.R., Historical Eclipses and Earth's Rotation, Cambridge Univ. Press, 1997
