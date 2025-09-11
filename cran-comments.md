@@ -1,6 +1,14 @@
+## This is resubmission
+
+Fixed error when building the PDF refman
+
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note
+
+unable to verify current time
+
+R CMD check succeeded
 
 ## revdepcheck results
 

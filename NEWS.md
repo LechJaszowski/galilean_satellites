@@ -1,3 +1,7 @@
+# galisats 2.0.2 (2025-09-11)
+
+-   fixing error when building the PDF refman
+
 # galisats 2.0.1 (2025-08-24)
 
 -   fixing `delta_t()` function to generate a vector of values
