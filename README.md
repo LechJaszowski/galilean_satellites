@@ -49,7 +49,7 @@ devtools::install_github("LechJaszowski/galilean_satellites")
 
 ## Example
 
-There are examples of using `galsat()` and `delta_t()` functions:
+There are examples of using `galsat()`, `animate_galsat()`, and `delta_t()` functions:
 
 ``` r
 library(galisats)
@@ -63,6 +63,31 @@ galsat(2025, 10, 13, 21, 40)
     #> 2   Europa  -8.417919  0.1080519
     #> 3 Ganymede   6.644450 -0.3518624
     #> 4 Callisto -24.735531  0.2536266
+
+## Animation
+
+The `animate_galsat()` function creates animations showing the orbital motion of Jupiter's moons:
+
+``` r
+# Animate 24 hours of moon motion (default)
+animate_galsat(2025, 10, 13, 21, 40)
+
+# Animate 6 hours with 5-minute steps for faster viewing
+animate_galsat(2025, 10, 13, 21, 40, duration_hours = 6, time_step_minutes = 5)
+
+# Quick preview - 2 hours with 10-minute steps
+animate_galsat(2025, 10, 13, 21, 40, duration_hours = 2, time_step_minutes = 10, pause_seconds = 0.05)
+```
+
+The animation shows:
+- Jupiter in the center with its characteristic appearance
+- The four Galilean satellites (Io, Europa, Ganymede, Callisto) as colored dots
+- Orbital trails showing recent positions
+- Real-time date/time display
+- Frame counter and step information
+
+## Delta-T Function
+
     delta_t(1999, 10)
     #> [1] 63.78768
     delta_t(c(-200, 1610, 2030), c(1, 10, 12))

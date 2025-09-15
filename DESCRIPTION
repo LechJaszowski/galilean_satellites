@@ -11,6 +11,7 @@ Description: Calculate and plot the configuration of Jupiter's four largest
     satellites (known as Galilean satellites) for a given date and time
     (UTC - Coordinated Universal Time).
     The galsat() function returns numerical values of the satellites’ positions.
+    The animate_galsat() function creates animations showing orbital motion over time.
     x – the apparent rectangular coordinate of the satellite with respect to the
     center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s
     equatorial radius; X is positive toward the west,
