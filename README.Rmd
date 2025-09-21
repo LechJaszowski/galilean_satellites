@@ -30,6 +30,8 @@ The `galsat()` function calculates numerical values of the satellites’ positio
 x – the apparent rectangular coordinate of the satellite with respect to the center of Jupiter’s disk in the equatorial plane in the units of Jupiter’s equatorial radius; X is positive toward the west
 
 y – the apparent rectangular coordinate of the satellite with respect to the center of Jupiter’s disk from the equatorial plane in the units of Jupiter’s equatorial radius; Y is positive toward the north
+u_corrected – the corrected angular position of the satellite in degrees, used to determine visibility conditions (whether a moon can be seen against Jupiter's disk or is hidden behind it)
+
 
 The function is based on algorithms in the book:
 

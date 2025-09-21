@@ -24,6 +24,10 @@ degrees <- function(radian) {
 #' center of Jupiter's disk from the equatorial plane in the units of Jupiter's
 #' equatorial radius; Y is positive toward the north
 #'
+#'   u_corrected - the corrected angular position of the satellite in degrees,
+#' used to determine visibility conditions (whether a moon can be seen against
+#' Jupiter's disk or is hidden behind it)
+#'
 #' @details
 #' The function is based on algorithms in the book:
 #' Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell Inc., 1988
@@ -35,11 +39,12 @@ degrees <- function(radian) {
 #' @param minute Type in the minute (integer number from 0 to 59).
 #'
 #' @returns
-#' `data.frame`: 4 observations of 3 variables:
+#' `data.frame`: 4 observations of 4 variables:
 #' $ moon: chr "Io" "Europa" "Ganymede" "Callisto"
 #' $ x   : num
 #' $ y   : num
-#' Four rows - each row has the position (x,y) of one moon.
+#' $ u_corrected: num
+#' Four rows - each row has the position (x,y) and corrected angular position (u_corrected) of one moon.
 #' Additionally, the positions of the moons are shown graphically.
 #'
 #' @importFrom png readPNG
@@ -172,7 +177,8 @@ galsat <- function(year, month, day, hour, minute) {
     p <- data.frame(
         moon = c("Io", "Europa", "Ganymede", "Callisto"),
         x = c(x1, x2, x3, x4),
-        y = c(y1, y2, y3, y4)
+        y = c(y1, y2, y3, y4),
+        u_corrected = c(u1_corrected, u2_corrected, u3_corrected, u4_corrected)
     )
 
     # inserting a title, date and time
