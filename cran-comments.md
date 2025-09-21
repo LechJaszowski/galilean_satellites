@@ -1,6 +1,6 @@
-## This is resubmission
+## This is new version
 
-Fixed error when building the PDF refman
+Added new function galsat_animate()
 
 ## R CMD check results
 

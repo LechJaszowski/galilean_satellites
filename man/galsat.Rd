@@ -18,11 +18,12 @@ galsat(year, month, day, hour, minute)
 \item{minute}{Type in the minute (integer number from 0 to 59).}
 }
 \value{
-\code{data.frame}: 4 observations of 3 variables:
-$ moon: chr "Io" "Europa" "Ganymede" "Callisto"
-$ x   : num
-$ y   : num
-Four rows - each row has the position (x,y) of one moon.
+\code{data.frame}: 4 observations of 4 variables:
+$ moon       : chr "Io" "Europa" "Ganymede" "Callisto"
+$ x          : num
+$ y          : num
+$ u_corrected: num
+Four rows - each row has the position (x,y) and corrected angular position (u_corrected) of one moon.
 Additionally, the positions of the moons are shown graphically.
 }
 \description{
@@ -40,6 +41,10 @@ equatorial radius; X is positive toward the west
 y - the apparent rectangular coordinate of the satellite with respect to the
 center of Jupiter's disk from the equatorial plane in the units of Jupiter's
 equatorial radius; Y is positive toward the north
+
+u_corrected - the corrected angular position of the satellite in degrees,
+used to determine visibility conditions (whether a moon can be seen against
+Jupiter's disk or is hidden behind it)
 }
 \details{
 The function is based on algorithms in the book:
