@@ -212,14 +212,14 @@ galsat <- function(year, month, day, hour, minute) {
 #' Animate the motion of Jupiter's Galilean satellites
 #'
 #' @description
-#' `animate_galsat()` creates an animation showing the orbital motion of Jupiter's 
-#' four largest satellites over time. The function starts from a user-specified 
+#' `galsat_animate()` creates an animation showing the orbital motion of Jupiter's
+#' four largest satellites over time. The function starts from a user-specified
 #' time and advances in regular intervals to show how the moons move around Jupiter.
 #'
 #' @details
-#' The animation uses the galsat() function internally to calculate satellite 
-#' positions at each time step. Time is advanced by the specified interval 
-#' (default 1 minute) for each frame of the animation.
+#' The animation uses the galsat() function internally to calculate satellite
+#' positions at each time step. Time is advanced by the specified interval
+#' (default 5 minutes) for each frame of the animation.
 #'
 #' @param year Type in the starting year (integer number from 0 to 3000).
 #' @param month Type in the starting month (integer number from 1 to 12).
@@ -227,8 +227,8 @@ galsat <- function(year, month, day, hour, minute) {
 #' @param hour Type in the starting hour (integer number from 0 to 23).
 #' @param minute Type in the starting minute (integer number from 0 to 59).
 #' @param duration_hours Duration of the animation in hours (default 24).
-#' @param time_step_minutes Time step between frames in minutes (default 1).
-#' @param pause_seconds Pause between frames in seconds (default 0.1).
+#' @param time_step_minutes Time step between frames in minutes (default 5).
+#' @param pause_seconds Pause between frames in seconds (default 0.05).
 #'
 #' @returns
 #' Creates an animated plot showing the orbital motion of Jupiter's moons.
@@ -237,34 +237,37 @@ galsat <- function(year, month, day, hour, minute) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' # Animate 24 hours of moon motion starting from a specific time
-#' animate_galsat(2025, 10, 13, 23, 30)
-#' 
-#' # Animate 6 hours with 5-minute steps
-#' animate_galsat(2025, 10, 13, 23, 30, duration_hours = 6, time_step_minutes = 5)
-#' }
-animate_galsat <- function(year, month, day, hour, minute, 
-                          duration_hours = 24, 
-                          time_step_minutes = 1, 
-                          pause_seconds = 0.1) {
-    
+#' # Animate 24 hours of moons motion starting from a specific time
+#' galsat_animate(2025, 10, 13, 23, 30)
+#'
+#' # Animate 6 hours with 2-minutes steps
+#' galsat_animate(2025, 10, 10, 22, 30, duration_hours = 6, time_step_minutes = 2)
+
+galsat_animate <- function(year, month, day, hour, minute,
+                           duration_hours = 24,
+                           time_step_minutes = 5,
+                           pause_seconds = 0.05) {
+
     # Validate inputs
     if (!is.numeric(c(year, month, day, hour, minute, duration_hours, time_step_minutes, pause_seconds))) {
         stop("All parameters must be numeric.")
     }
-    
-    if (duration_hours <= 0 || time_step_minutes <= 0 || pause_seconds < 0) {
-        stop("Duration, time step, and pause must be positive values.")
+
+    if (duration_hours <= 0 || time_step_minutes <= 0) {
+        stop("Duration and time step must be positive values.")
     }
-    
+
+    if (pause_seconds < 0) {
+        stop("Pause cannot be negative value.")
+    }
+
     # Calculate total number of frames
     total_minutes <- duration_hours * 60
     n_frames <- ceiling(total_minutes / time_step_minutes)
-    
+
     # Store positions for creating trails
     positions_history <- list()
-    
+
     # Create the animation
     for (i in 1:n_frames) {
         # Calculate current time
@@ -273,26 +276,25 @@ animate_galsat <- function(year, month, day, hour, minute,
         current_day <- day
         current_month <- month
         current_year <- year
-        
+
         # Handle minute overflow
         if (current_minute >= 60) {
             extra_hours <- floor(current_minute / 60)
             current_minute <- current_minute %% 60
             current_hour <- current_hour + extra_hours
         }
-        
+
         # Handle hour overflow
         if (current_hour >= 24) {
             extra_days <- floor(current_hour / 24)
             current_hour <- current_hour %% 24
             current_day <- current_day + extra_days
         }
-        
+
         # Simple day overflow handling (not perfect for all months/years, but sufficient)
         max_day <- 31
         if (current_month %in% c(4, 6, 9, 11)) max_day <- 30
         if (current_month == 2) max_day <- 28
-        
         if (current_day > max_day) {
             current_day <- current_day - max_day
             current_month <- current_month + 1
@@ -301,102 +303,67 @@ animate_galsat <- function(year, month, day, hour, minute,
                 current_year <- current_year + 1
             }
         }
-        
+
         # Get satellite positions for current time
         tryCatch({
-            positions <- galsat(current_year, current_month, current_day, 
-                              current_hour, current_minute)
-            
-            # Store positions for trails
-            positions_history[[i]] <- cbind(positions, frame = i)
-            
+            positions <- galsat(current_year, current_month, current_day, current_hour, current_minute)
+
             # Clear the plot and redraw
-            graphics::plot(c(-30, 30), c(-30, 30), type = "n", axes = FALSE, 
-                         xlab = "", ylab = "", asp = 1)
-            
+            graphics::plot(c(-30, 30), c(-30, 30), type = "n", axes = FALSE, xlab = "", ylab = "", asp = 1)
+
             # Add title with animation info
-            graphics::text(0, 28, "ANIMATION: SATELLITES OF JUPITER", 
-                         col = "black", cex = 1.7, adj = 0.5)
+            graphics::text(0, 28, "ANIMATION: SATELLITES OF JUPITER", col = "black", cex = 1.7, adj = 0.5)
             graphics::text(0, 23,
-                         paste0('Date: ', current_year, '-', sprintf("%02d", current_month), 
-                               '-', sprintf("%02d", current_day)),
-                         col = "black", cex = 1.2, adj = 0.5)
+                           paste0('Date: ', current_year, '-', sprintf("%02d", current_month), '-', sprintf("%02d", current_day)),
+                           col = "black", cex = 1.2, adj = 0.5)
             graphics::text(0, 18,
-                         paste0('Time [UTC]: ', sprintf("%02d", current_hour), 
-                               ':', sprintf("%02d", current_minute)),
-                         col = "black", cex = 1.2, adj = 0.5)
+                           paste0('Time [UTC]: ', sprintf("%02d", current_hour), ':', sprintf("%02d", current_minute)),
+                           col = "black", cex = 1.2, adj = 0.5)
             graphics::text(0, 13,
-                         paste0('Frame: ', i, '/', n_frames, ' (Step: ', 
-                               time_step_minutes, ' min)'),
-                         col = "gray50", cex = 1.0, adj = 0.5)
-            
+                           paste0('Frame: ', i, '/', n_frames, ' (Step: ', time_step_minutes, ' min)'),
+                           col = "gray50", cex = 1.0, adj = 0.5)
+
             # Draw Jupiter
             jupiter <- png::readPNG(system.file("jupiter.png", package = "galisats"))
             graphics::rasterImage(jupiter, xleft = -1, ybottom = -1, xright = 1, ytop = 1)
-            
-            # Draw orbital trails (last 20 positions)
-            if (length(positions_history) > 1) {
-                trail_length <- min(20, length(positions_history))
-                start_idx <- max(1, length(positions_history) - trail_length + 1)
-                
-                for (j in start_idx:(length(positions_history) - 1)) {
-                    old_pos <- positions_history[[j]]
-                    alpha <- (j - start_idx + 1) / trail_length * 0.3
-                    
-                    for (k in 1:nrow(old_pos)) {
-                        moon_name <- old_pos$moon[k]
-                        x_pos <- old_pos$x[k]
-                        y_pos <- old_pos$y[k]
-                        
-                        if (sqrt(x_pos^2 + y_pos^2) > 1) {
-                            color <- switch(moon_name,
-                                          "Io" = "red",
-                                          "Europa" = "blue", 
-                                          "Ganymede" = "green",
-                                          "Callisto" = "magenta")
-                            
-                            graphics::points(x_pos, y_pos, col = color, pch = 20, 
-                                           cex = 0.3)
-                        }
-                    }
-                }
-            }
-            
+
             # Draw current satellite positions
             colors <- c("red", "blue", "green", "magenta")
             labels <- c("I", "E", "G", "C")
-            
+
             for (j in 1:nrow(positions)) {
                 x_pos <- positions$x[j]
                 y_pos <- positions$y[j]
                 moon_name <- positions$moon[j]
-                
+
                 # Calculate angular position for visibility check
                 r <- sqrt(x_pos^2 + y_pos^2)
-                
-                if (r > 1) {  # Moon is visible (not behind Jupiter)
+
+                if (r > 1) {  # moon is visible (not behind Jupiter)
+                    # This condition is not sufficient. The Moon can be seen against the disk of Jupiter:
+                    # Add conditions:
+                    # u1_corrected < 90 | u1_corrected > 270 for Io and so on for other moons.
+                    # But we don't have u1_corrected here.
+                    # How to get u1_corrected here? Could you modify galsat() to return it?
+
                     # Draw moon
-                    graphics::points(x_pos, y_pos, col = colors[j], pch = 20, cex = 1.5)
+                    graphics::points(x_pos, y_pos, col = colors[j], pch = 20)
                     # Draw label
-                    graphics::text(x_pos, y_pos + 3, labels[j], col = colors[j], 
-                                 cex = 0.8, adj = 0.5)
+                    graphics::text(x_pos, y_pos + 3, labels[j], col = colors[j], cex = 0.8, adj = 0.5)
                 }
             }
-            
+
             # Add legend
-            graphics::text(-28, -15, "Trails show recent orbital paths", 
-                         col = "gray50", cex = 0.8, adj = 0)
-            graphics::text(-28, -18, "I=Io, E=Europa, G=Ganymede, C=Callisto", 
-                         col = "gray50", cex = 0.8, adj = 0)
-            
+            graphics::text(-28, -18, "I=Io, E=Europa, G=Ganymede, C=Callisto", col = "gray50", cex = 0.8, adj = 0)
+
             # Pause between frames
             Sys.sleep(pause_seconds)
-            
+
         }, error = function(e) {
             warning(paste("Error at frame", i, ":", e$message))
         })
     }
-    
+
     # Return the final positions
     invisible(positions)
 }
