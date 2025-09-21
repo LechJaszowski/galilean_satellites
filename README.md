@@ -27,6 +27,9 @@ Jupiter’s equatorial radius; X is positive toward the west
 y – the apparent rectangular coordinate of the satellite with respect to
 the center of Jupiter’s disk from the equatorial plane in the units of
 Jupiter’s equatorial radius; Y is positive toward the north
+u_corrected – the corrected angular position of the satellite in degrees,
+used to determine visibility conditions (whether a moon can be seen against
+Jupiter's disk or is hidden behind it)
 
 The function is based on algorithms in the book:
 
@@ -58,11 +61,11 @@ galsat(2025, 10, 13, 21, 40)
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
-    #>       moon          x          y
-    #> 1       Io   4.089507  0.1125276
-    #> 2   Europa  -8.417919  0.1080519
-    #> 3 Ganymede   6.644450 -0.3518624
-    #> 4 Callisto -24.735531  0.2536266
+    #>       moon          x          y u_corrected
+    #> 1       Io   4.089507  0.1125276   136.36624
+    #> 2   Europa  -8.417919  0.1080519   243.92834
+    #> 3 Ganymede   6.644450 -0.3518624    26.35374
+    #> 4 Callisto -24.735531  0.2536266   248.65218
     delta_t(1999, 10)
     #> [1] 63.78768
     delta_t(c(-200, 1610, 2030), c(1, 10, 12))
