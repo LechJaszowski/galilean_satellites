@@ -6,7 +6,8 @@ Added new function galsat_animate()
 
 0 errors | 0 warnings | 1 note
 
-unable to verify current time
+checking examples ... [37s] NOTE
+It's because of generating frames of the animation in galsat_animate().
 
 R CMD check succeeded
 
