@@ -1,3 +1,9 @@
+# galisats 2.2.0 (2025-09-27)
+
+-   fixing overlapping moons' labels in the plot and animation
+
+-   adding interesting examples of configuration moments to the documentation
+
 # galisats 2.1.0 (2025-09-21)
 
 -   new function `galsat_animate()` animates the motion of the moons around Jupiter

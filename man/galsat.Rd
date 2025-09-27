@@ -52,4 +52,9 @@ Astronomical Formulae for Calculators (4th edition), Jean Meeus, Willmann-Bell I
 }
 \examples{
 galsat(2025, 10, 13, 23, 30)
+# Also try these interesting configuration moments:
+galsat(2021, 8, 15, 15, 48)
+galsat(2032, 1, 5, 6, 44)
+galsat(2033, 7, 28, 4, 50)
+galsat(2039, 7, 31, 18, 55)
 }

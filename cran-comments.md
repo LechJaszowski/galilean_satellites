@@ -1,13 +1,11 @@
-## This is new version
+## This is a resubmission
 
-Added new function galsat_animate()
+This is a resubmission.
+In this version I have reduced the execution time of the examples to 1.5 sec.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-checking examples ... [37s] NOTE
-It's because of generating frames of the animation in galsat_animate().
+0 errors | 0 warnings | 0 notes
 
 R CMD check succeeded
 
