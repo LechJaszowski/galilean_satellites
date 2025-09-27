@@ -48,14 +48,14 @@ You can install the development version of galisats from [GitHub] (<https://gith
 devtools::install_github("LechJaszowski/galilean_satellites")
 ```
 
-## Example
+## Examples
 
 There are examples of using `galsat()`, `galsat_animate()` and `delta_t()` functions:
 
 ```{r example}
 library(galisats)
 galsat(2025, 10, 13, 21, 40)
-galsat_animate(2025, 11, 10, 20, 30, duration_hours = 1, time_step_minutes = 15)
+galsat_animate(2025, 10, 6, 21, 50, duration_hours = 1, time_step_minutes = 15)
 delta_t(1999, 10)
 delta_t(c(-200, 1610, 2030), c(1, 10, 12))
 ```

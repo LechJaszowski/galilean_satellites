@@ -51,7 +51,7 @@ You can install the development version of galisats from \[GitHub\]
 devtools::install_github("LechJaszowski/galilean_satellites")
 ```
 
-## Example
+## Examples
 
 There are examples of using `galsat()`, `galsat_animate()` and
 `delta_t()` functions:
@@ -68,7 +68,7 @@ galsat(2025, 10, 13, 21, 40)
     #> 2   Europa  -8.417919  0.1080519   243.92834
     #> 3 Ganymede   6.644450 -0.3518624    26.35374
     #> 4 Callisto -24.735531  0.2536266   248.65218
-    galsat_animate(2025, 11, 10, 20, 30, duration_hours = 1, time_step_minutes = 15)
+    galsat_animate(2025, 10, 6, 21, 50, duration_hours = 1, time_step_minutes = 15)
 
 <img src="man/figures/README-example-2.png" width="100%" /><img src="man/figures/README-example-3.png" width="100%" /><img src="man/figures/README-example-4.png" width="100%" /><img src="man/figures/README-example-5.png" width="100%" /><img src="man/figures/README-example-6.png" width="100%" /><img src="man/figures/README-example-7.png" width="100%" /><img src="man/figures/README-example-8.png" width="100%" /><img src="man/figures/README-example-9.png" width="100%" />
 

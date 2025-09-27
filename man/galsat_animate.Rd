@@ -47,9 +47,6 @@ positions at each time step. Time is advanced by the specified interval
 (default 5 minutes) for each frame of the animation.
 }
 \examples{
-# Animate 24 hours of moons motion starting from a specific time
-galsat_animate(2025, 10, 13, 23, 30)
-
-# Animate 6 hours with 2-minutes steps
-galsat_animate(2025, 11, 10, 22, 30, duration_hours = 6, time_step_minutes = 2)
+# Animate 2 hours with 10-minutes steps
+galsat_animate(2025, 10, 6, 21, 50, duration_hours = 2, time_step_minutes = 10)
 }

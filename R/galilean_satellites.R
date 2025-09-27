@@ -202,15 +202,15 @@ galsat <- function(year, month, day, hour, minute) {
     }
     if (sqrt(x2^2 + y2^2) > 1 | u2_corrected < 90 | u2_corrected > 270) {
         graphics::points(x2, y2, col = "blue", pch = 20);
-        graphics::text(x2, y2 + 3, "E", col = "blue", cex = 0.8, adj = 0.5)
+        graphics::text(x2, y2 + 6, "E", col = "blue", cex = 0.8, adj = 0.5)
     }
     if (sqrt(x3^2 + y3^2) > 1 | u3_corrected < 90 | u3_corrected > 270) {
         graphics::points(x3, y3, col = "green", pch = 20);
-        graphics::text(x3, y3 + 3, "G", col = "green", cex = 0.8, adj = 0.5)
+        graphics::text(x3, y3 + 9, "G", col = "green", cex = 0.8, adj = 0.5)
     }
     if (sqrt(x4^2 + y4^2) > 1 | u4_corrected < 90 | u4_corrected > 270) {
         graphics::points(x4, y4, col = "magenta", pch = 20);
-        graphics::text(x4, y4 + 3, "C", col = "magenta", cex = 0.8, adj = 0.5)
+        graphics::text(x4, y4 + 12, "C", col = "magenta", cex = 0.8, adj = 0.5)
     }
     return(p)
 }
@@ -243,11 +243,8 @@ galsat <- function(year, month, day, hour, minute) {
 #' @export
 #'
 #' @examples
-#' # Animate 24 hours of moons motion starting from a specific time
-#' galsat_animate(2025, 10, 13, 23, 30)
-#'
-#' # Animate 6 hours with 2-minutes steps
-#' galsat_animate(2025, 11, 10, 22, 30, duration_hours = 6, time_step_minutes = 2)
+#' # Animate 2 hours with 10-minutes steps
+#' galsat_animate(2025, 10, 6, 21, 50, duration_hours = 2, time_step_minutes = 10)
 
 galsat_animate <- function(year, month, day, hour, minute,
                            duration_hours = 24,
@@ -270,9 +267,6 @@ galsat_animate <- function(year, month, day, hour, minute,
     # Calculate total number of frames
     total_minutes <- duration_hours * 60
     n_frames <- ceiling(total_minutes / time_step_minutes)
-
-    # Store positions for creating trails
-    positions_history <- list()
 
     # Create the animation
     for (i in 1:n_frames) {
@@ -325,7 +319,7 @@ galsat_animate <- function(year, month, day, hour, minute,
             graphics::text(0, 18,
                            paste0('Time [UTC]: ', sprintf("%02d", current_hour), ':', sprintf("%02d", current_minute)),
                            col = "black", cex = 1.2, adj = 0.5)
-            graphics::text(0, 13,
+            graphics::text(0, 14,
                            paste0('Frame: ', i, '/', n_frames, ' (Step: ', time_step_minutes, ' min)'),
                            col = "gray50", cex = 1.0, adj = 0.5)
 
@@ -350,12 +344,12 @@ galsat_animate <- function(year, month, day, hour, minute,
                     # Draw moon
                     graphics::points(x_pos, y_pos, col = colors[j], pch = 20)
                     # Draw label
-                    graphics::text(x_pos, y_pos + 3, labels[j], col = colors[j], cex = 0.8, adj = 0.5)
+                    graphics::text(x_pos, y_pos + 3 * j, labels[j], col = colors[j], cex = 0.8, adj = 0.5)
                 }
             }
 
             # Add legend
-            graphics::text(-28, -18, "I=Io, E=Europa, G=Ganymede, C=Callisto", col = "gray50", cex = 0.8, adj = 0)
+            graphics::text(0, -18, "I = Io    E = Europa    G = Ganymede    C = Callisto", col = "gray50", cex = 0.8, adj = 0.5)
 
             # Pause between frames
             Sys.sleep(pause_seconds)
